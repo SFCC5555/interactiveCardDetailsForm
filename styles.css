@@ -26,8 +26,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    background-color: black;
+    background-color: var(--white);
 }
 
 header {
@@ -70,6 +69,75 @@ header {
 
 main {
     width: 100%;
+    padding: 30px;
+    padding-top: 100px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+form label {
+    color: var(--veryDarkViolet);
+    align-self: flex-start;
+    margin-bottom: 10px;
+}
+
+form input {
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 20px;
+    border: 1px solid var(--lightGrayishViolet);
+    padding: 10px;
+    color: var(--lightGrayishViolet);
+    border-radius: 5px;
+}
+
+.finalBlock {
+    display: flex;
+}
+
+.finalBlock1 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.finalBlock2 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dateBlock {
+    display: flex;
+}
+
+.dateBlock input {
+    width: 50%;
+    margin-right: 10px;
+}
+
+
+.confirmButton {
+    font-size: 1.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+    background-color:var(--veryDarkViolet);
+    color: var(--white);
+    padding: 10px;
+    border: 2px solid var(--veryDarkViolet);
+    border-radius: 5px;
+}
+
+.confirmButton:hover {
+    background-color: var(--white);
+    color: var(--veryDarkViolet);
+    cursor: pointer;
 }
 
 .attribution { 
