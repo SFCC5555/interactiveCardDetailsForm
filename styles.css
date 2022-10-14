@@ -50,7 +50,7 @@ header {
     background-size: 100%;
     background-position: center;
     position: absolute;
-    top: 15%;
+    top: 45px;
     right: 5%;
 }
 
@@ -62,7 +62,7 @@ header {
     background-size: 100%;
     background-position: center;
     position: absolute;
-    top: 50%;
+    top: 130px;
     left: 5%;
 }
 
