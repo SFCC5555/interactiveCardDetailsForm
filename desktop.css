@@ -10,7 +10,7 @@ header {
     background-size:auto;
 }
 
-form {
+.form {
     width: 40%;
     min-width: 250px;
     translate: 20% -10%;
