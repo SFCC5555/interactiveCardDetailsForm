@@ -173,6 +173,7 @@ form input:focus {
     left: 215px;
     color: var(--white);
     letter-spacing: 1.5px;
+    display: inline-block;
 }
 
 #circle {
@@ -202,7 +203,7 @@ form input:focus {
     top: 45px;
     left: 50%;
     translate: -50%;
-    width: fit-content;
+    display: inline-block;
 }
 
 #cardHolderNameValue {
@@ -211,12 +212,14 @@ form input:focus {
     position: relative;
     top:57px;
     left:20px;
+    display: inline-block;
 }
 
 #dateValue {
     color: var(--white);
     letter-spacing: 1.5px;
     position: relative;
-    top: 44px;
-    left: 225px;
+    top: 57px;
+    left: 128px;
+    display: inline-block;
 }
