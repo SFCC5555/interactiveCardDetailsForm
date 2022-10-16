@@ -4,7 +4,7 @@ body {
 
 header {
     height: 100vh;
-    width: 35%;
+    width: 40%;
     min-width: 0px;
     background-image: url(./images/bg-main-desktop.png);
     background-size:auto;
@@ -12,7 +12,8 @@ header {
 
 form {
     width: 40%;
-    translate: 15% -10%;
+    min-width: 250px;
+    translate: 20% -10%;
 }
 
 .cardBack {
@@ -25,8 +26,7 @@ form {
 .cardFront {
     position: absolute;
     top: 22.5%;
-    right: 0%;
-    translate: 20%;
+    left: 30%;
 }
 
 .attribution { 
