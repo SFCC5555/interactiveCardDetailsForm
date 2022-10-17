@@ -24,7 +24,6 @@ function render(evento) {
         else if (evento.key=="Enter") {
             cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();
             console.log(evento)
-            KeyboardEvent("Tap")
         }
 
         else {
