@@ -6,18 +6,17 @@ charList=["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K
 let renderStatus="on"
 
 
-cardHolderName.addEventListener("keydown",render);
-cardHolderName.addEventListener("keydown",test);
+cardHolderName.addEventListener("keypress",render);
+cardHolderName.addEventListener("keyress",test);
 
 
 
 function render(evento) {
     letter= evento.key.toUpperCase();
-    console.log(evento)
     if (renderStatus=="on") {
-
+        console.log(evento)
         if (evento.key=="Backspace") {
-
+            console.log(evento)
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
         }
 
