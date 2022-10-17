@@ -20,7 +20,7 @@ function render(evento) {
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
         }
 
-        else if (evento.key=="Tab") {
+        else if (evento.keyCode==9) {
             cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();
             console.log(evento)
             alert("funciona")
