@@ -23,6 +23,7 @@ function render(evento) {
         else if (evento.key=="Tab") {
             cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();
             console.log(evento)
+            alert("funciona")
         }
 
         else {
