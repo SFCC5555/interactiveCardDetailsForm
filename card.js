@@ -6,8 +6,8 @@ charList=["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K
 let renderStatus="on"
 
 
-cardHolderName.addEventListener("onkeydown",render);
-cardHolderName.addEventListener("onkeydown",test);
+cardHolderName.addEventListener("keydown",render);
+cardHolderName.addEventListener("keydown",test);
 
 
 
@@ -20,7 +20,7 @@ function render(evento) {
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
         }
 
-        else if (evento.key=="Enter") {
+        else if (evento.key=="Tab") {
             cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();
             console.log(evento)
         }
