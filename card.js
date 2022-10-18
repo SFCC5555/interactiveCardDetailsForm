@@ -1,11 +1,14 @@
 let cardHolderName=document.getElementById("cardHolderName");
 let cardHolderNameValue=document.getElementById("cardHolderNameValue");
 
+let cardNumber=document.getElementById("cardNumber");
+let cardNumberValue=document.getElementById("cardNumberValue");
+
 charList=["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Ñ","Z","X","C","V","B","N","M","Á","É","Í","Ó","Ú"," ","Backspace","Enter"];
 
 let renderStatus="on"
 
-cardHolderName.addEventListener("click",render);
+cardHolderName.addEventListener("focus",render);
 cardHolderName.addEventListener("keydown",render);
 cardHolderName.addEventListener("keydown",test);
 
@@ -16,9 +19,10 @@ function render(evento) {
     if (renderStatus=="on") {
         console.log(evento)
         
-        if (evento.type=="click") {
+        if (evento.type=="focus") {
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
             document.addEventListener("click",render);
+            cardNumber.addEventListener("focus",render);
         }
 
         
