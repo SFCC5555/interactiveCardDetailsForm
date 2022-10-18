@@ -56,7 +56,6 @@ function render(evento) {
 }
 
 function test(evento2) {
-    alert("vergaaaaaa")
     z=[];
 
     if (evento2.keyCode==8) {
