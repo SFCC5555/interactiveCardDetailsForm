@@ -5,29 +5,30 @@ charList=["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K
 
 let renderStatus="on"
 
-
+cardHolderName.addEventListener("click",render);
 cardHolderName.addEventListener("keydown",render);
 cardHolderName.addEventListener("keydown",test);
 
 
 
 function render(evento) {
-    letter= evento.key.toUpperCase();
+
     if (renderStatus=="on") {
         console.log(evento)
-        if (evento.key=="Backspace") {
+        
+        if (evento.type=="click") {
+            setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
+            document.addEventListener("click",render);
+        }
+
+        
+        else if (evento.key=="Backspace") {
             console.log(evento)
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
         }
 
-        else if (evento.keyCode==83) {
-            cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();
-            console.log(evento)
-            alert("funciona")
-        }
-
         else {
-
+            letter= evento.key.toUpperCase();
             for (char of charList) {
     
                 if (letter==char) {
