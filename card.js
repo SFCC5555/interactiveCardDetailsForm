@@ -32,7 +32,7 @@ function render(evento) {
             cardNumber.addEventListener("focus",render);
         }
 
-        else if (evento.key=="Backspace") {
+        else if (evento.keyCode==8) {
             console.log(evento)
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
         }
@@ -58,9 +58,8 @@ function render(evento) {
 function test(evento2) {
     z=[];
     console.log(evento2)
-    if (evento2.keyCode==83) {
+    if (evento2.keyCode==8) {
         y=cardHolderName.value.substr(0,cardHolderName.value.length-1)
-        alert("vales verga mobile")
 
     }
     else {
