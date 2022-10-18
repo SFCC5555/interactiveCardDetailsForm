@@ -58,7 +58,7 @@ function render(evento) {
 function test(evento2) {
     z=[];
     console.log(evento2)
-    if (evento2.keyCode==8) {
+    if (evento2.key=="Backspace") {
         y=cardHolderName.value.substr(0,cardHolderName.value.length-1)
 
     }
