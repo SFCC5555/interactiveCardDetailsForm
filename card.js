@@ -25,6 +25,7 @@ function render(evento) {
         }
         
         else if (evento.type=="click") {
+            cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
             document.addEventListener("click",render);
             cardNumber.addEventListener("focus",render);
@@ -43,7 +44,7 @@ function render(evento) {
     
                 if (letter==char) {
                     cardHolderNameValue.innerText=cardHolderName.value.toUpperCase()+letter;
-                    setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},100) 
+                    setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},150) 
                 }
             }
         }
