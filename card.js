@@ -32,7 +32,7 @@ function render(evento) {
             cardNumber.addEventListener("focus",render);
         }
 
-        else if (evento.keyCode==8) {
+        else if (evento.key=="Backspace") {
             console.log(evento)
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
         }
