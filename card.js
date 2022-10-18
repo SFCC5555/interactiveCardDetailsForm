@@ -8,9 +8,10 @@ charList=["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K
 
 let renderStatus="on"
 
-cardHolderName.addEventListener("focus",render);
+cardHolderName.addEventListener("click",render);
 cardHolderName.addEventListener("keydown",render);
 cardHolderName.addEventListener("keydown",test);
+
 
 
 
@@ -21,8 +22,13 @@ function render(evento) {
         
         if (evento.type=="focus") {
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
+        }
+        
+        else if (evento.type=="click") {
+            setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
             document.addEventListener("click",render);
             cardNumber.addEventListener("focus",render);
+
         }
 
         
