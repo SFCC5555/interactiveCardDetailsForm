@@ -22,10 +22,11 @@ function render(evento) {
         
         if (evento.type=="focus") {
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
+            setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},1)
         }
         
         else if (evento.type=="click") {
-            cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();
+            setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},1)
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
             document.addEventListener("click",render);
             cardNumber.addEventListener("focus",render);
