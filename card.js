@@ -1,5 +1,6 @@
 let cardHolderName=document.getElementById("cardHolderName");
 let cardHolderNameValue=document.getElementById("cardHolderNameValue");
+let cardHolderNameError=document.getElementById("cardHolderNameError");
 
 let cardNumber=document.getElementById("cardNumber");
 let cardNumberValue=document.getElementById("cardNumberValue");
@@ -24,16 +25,13 @@ function render(evento) {
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
             setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},1)
         }
-        
         else if (evento.type=="click") {
             setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},1)
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
             document.addEventListener("click",render);
             cardNumber.addEventListener("focus",render);
-
         }
 
-        
         else if (evento.key=="Backspace") {
             console.log(evento)
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
@@ -51,7 +49,10 @@ function render(evento) {
         }
 
     }
-
+    else {
+        cardHolderNameError.classList.add("error");
+        cardHolderName.classList.add("errorInput");
+    }
 }
 
 function test(evento2) {

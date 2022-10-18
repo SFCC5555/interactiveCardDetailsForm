@@ -30,21 +30,22 @@
   <main>
     <section class="form">
       <label for="cardHolderName">CARDHOLDER NAME</label>
-      <input type="text" id="cardHolderName" placeholder="e.g. Levi Ackerman" maxlength="25">
+      <input class="input" type="text" id="cardHolderName" placeholder="e.g. Levi Ackerman" maxlength="25">
+      <div class="inactive" id="cardHolderNameError">Wrong format, letters only</div>
       <label for="cardNumber">CARD NUMBER</label>
-      <input type="text" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
+      <input class="input" type="text" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
       <div class="finalBlock">
         <div class="finalBlock1">
           <label for="dateMM">EXP.DATE (MM/YY)</label>
           <div class="dateBlock">
-            <input type="text" id="dateMM" placeholder="MM" maxlength="2">
-            <input type="text" id="dateYY" placeholder="YY" maxlength="2">
+            <input class="input" type="text" id="dateMM" placeholder="MM" maxlength="2">
+            <input class="input" type="text" id="dateYY" placeholder="YY" maxlength="2">
           </div>
         </div>
 
         <div class="finalBlock2">
           <label for="cVC">CVC</label>
-          <input type="text" id="cVC" placeholder="e.g. 123" maxlength="3">
+          <input class="input" type="text" id="cVC" placeholder="e.g. 123" maxlength="3">
         </div>
       </div>
       <input type="submit" value="Confirm" id="confirmButton">
@@ -54,7 +55,7 @@
 
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://www.frontendmentor.io/profile/SFCC5555">Mr.Ackerman Ver 3.3</a>.
+    Coded by <a href="https://www.frontendmentor.io/profile/SFCC5555">Mr.Ackerman Ver 3.4</a>.
   </div>
   <script src="./card.js"></script>
 </body>
