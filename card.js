@@ -21,6 +21,8 @@ function render(evento) {
         cardHolderNameError.classList.remove("error");
         cardHolderName.classList.remove("errorInput");
         
+
+
         if (evento.type=="focus") {
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
             setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},1)
@@ -32,21 +34,24 @@ function render(evento) {
             cardNumber.addEventListener("focus",render);
         }
 
-        else if (evento.key=="Backspace") {
-            console.log(evento)
-            setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
-        }
-
         else {
             letter= evento.key.toUpperCase();
-            for (char of charList) {
+
+            if (letter=="BACKSPACE") {
+                console.log(evento)
+                setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
+            }
     
-                if (letter==char) {
-                    cardHolderNameValue.innerText=cardHolderName.value.toUpperCase()+letter;
-                    setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},150) 
+            else {
+                for (char of charList) {
+        
+                    if (letter==char) {
+                        cardHolderNameValue.innerText=cardHolderName.value.toUpperCase()+letter;
+                        setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},150) 
+                    }
                 }
             }
-        }
+        }        
 
     }
     else {
@@ -57,10 +62,10 @@ function render(evento) {
 
 function test(evento2) {
     z=[];
-    console.log(evento2)
-    if (evento2.key=="Backspace") {
+    letter2= evento2.key.toUpperCase();
+    
+    if (letter2=="BACKSPACE") {
         y=cardHolderName.value.substr(0,cardHolderName.value.length-1)
-
     }
     else {
         y=cardHolderName.value.toUpperCase()+evento2.key.toUpperCase();
