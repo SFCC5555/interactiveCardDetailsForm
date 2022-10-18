@@ -59,7 +59,7 @@ function test(evento2) {
     alert("vergaaaaaa")
     z=[];
 
-    if (evento2.key=="Backspace") {
+    if (evento2.keyCode==8) {
         y=cardHolderName.value.substr(0,cardHolderName.value.length-1)
         alert("vales verga mobile")
         console.log(evento2)
