@@ -57,11 +57,11 @@ function render(evento) {
 
 function test(evento2) {
     z=[];
-
-    if (evento2.keyCode==8) {
+    console.log(evento2)
+    if (evento2.keyCode==83) {
         y=cardHolderName.value.substr(0,cardHolderName.value.length-1)
         alert("vales verga mobile")
-        console.log(evento2)
+
     }
     else {
         y=cardHolderName.value.toUpperCase()+evento2.key.toUpperCase();
