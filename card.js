@@ -60,6 +60,8 @@ function test(evento2) {
 
     if (evento2.key=="Backspace") {
         y=cardHolderName.value.substr(0,cardHolderName.value.length-1)
+        alert("vales verga mobile")
+        console.log(evento2)
     }
     else {
         y=cardHolderName.value.toUpperCase()+evento2.key.toUpperCase();
