@@ -5,21 +5,21 @@ let cardHolderNameError=document.getElementById("cardHolderNameError");
 let cardNumber=document.getElementById("cardNumber");
 let cardNumberValue=document.getElementById("cardNumberValue");
 
-charList=["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Ñ","Z","X","C","V","B","N","M","Á","É","Í","Ó","Ú"," ","Backspace","Enter"];
+charList=["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K","L","Ñ","Z","X","C","V","B","N","M","Á","É","Í","Ó","Ú"," "];
 
 let renderStatus="on"
 
 cardHolderName.addEventListener("click",render);
-cardHolderName.addEventListener("keydown",render);
 cardHolderName.addEventListener("keydown",test);
-
+cardHolderName.addEventListener("keydown",render);
 
 
 
 function render(evento) {
 
     if (renderStatus=="on") {
-        console.log(evento)
+        cardHolderNameError.classList.remove("error");
+        cardHolderName.classList.remove("errorInput");
         
         if (evento.type=="focus") {
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
@@ -57,7 +57,15 @@ function render(evento) {
 
 function test(evento2) {
     z=[];
-    y=cardHolderName.value.toUpperCase()+evento2.key.toUpperCase();
+
+    if (evento2.key=="Backspace") {
+        y=cardHolderName.value.substr(0,cardHolderName.value.length-1)
+    }
+    else {
+        y=cardHolderName.value.toUpperCase()+evento2.key.toUpperCase();
+    }
+
+    console.log(y)
     for (i of y) {
         x=charList.indexOf(i)
         z.push(x)
