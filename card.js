@@ -69,8 +69,18 @@ function render(evento) {
                 for (char of charList) {
         
                     if (letter==char) {
-                        cardHolderNameValue.innerText=cardHolderName.value.toUpperCase()+letter;
-                        setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},150) 
+
+                        if (cardHolderName.value.length==25) {
+
+                            cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();
+                            setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},150)
+                        }
+                        
+                        else {
+                            cardHolderNameValue.innerText=cardHolderName.value.toUpperCase()+letter;
+                            setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},150) 
+                        }
+
                     }
                 }
             }
@@ -96,10 +106,13 @@ function test(evento2) {
         }
     }
     else {
-        y=cardHolderName.value.toUpperCase()+evento2.key.toUpperCase();
+        y=cardHolderName.value.toUpperCase()+letter2;
     }
 
-    console.log(y)
+    if (cardHolderName.value.length==25) {
+        y=cardHolderName.value.toUpperCase();
+    }
+
     for (i of y) {
         x=charList.indexOf(i)
         z.push(x)
@@ -118,7 +131,7 @@ function test(evento2) {
 
 /*Card Number*/
 
-charNumberList=[1,2,3,4,5,6,7,8,9,0,"1","2","3","4","5","6","7","8","9","0"," "];
+charNumberList=["1","2","3","4","5","6","7","8","9","0"," "];
 
 let renderNumberStatus="on"
 
@@ -164,9 +177,22 @@ function renderNumber(eventoNumber) {
     
             else {
                 for (charNumber of charNumberList) {
-        
+                
                     if (number==charNumber) {
-                        cardNumberValue.innerText=cardNumber.value+number;
+                        
+                        if (cardNumber.value.length==19) {
+                            cardNumberValue.innerText=cardNumber.value;
+                        }
+
+                        else if (cardNumber.value.length==3 || cardNumber.value.length==8 || cardNumber.value.length==13) {
+                            setTimeout(function(){cardNumber.value=cardNumber.value+" ";},1)
+                            cardNumberValue.innerText=cardNumber.value+number;
+                        }
+                        
+                        else {
+                            cardNumberValue.innerText=cardNumber.value+number;
+                        }
+
                     }
                 }
             }
@@ -198,6 +224,10 @@ function testNumber(eventoNumber2) {
     }
     else {
         yNumber=cardNumber.value+number2;
+    }
+
+    if (cardNumber.value.length==19) {
+        yNumber=cardNumber.value
     }
 
     console.log(yNumber)
