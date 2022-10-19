@@ -20,14 +20,26 @@ function render(evento) {
     if (renderStatus=="on") {
         cardHolderNameError.classList.remove("error");
         cardHolderName.classList.remove("errorInput");
+        cardHolderNameError.innerText="Wrong format, letters only"
         
-
-
         if (evento.type=="focus") {
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
             setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},1)
+            if (cardHolderName.value=="") {
+                cardHolderNameError.classList.add("error");
+                cardHolderName.classList.add("errorInput");
+                cardHolderNameError.innerText="Can't be blank"
+            }
         }
         else if (evento.type=="click") {
+
+            if (evento.target!=cardHolderName) {
+                if (cardHolderName.value=="") {
+                    cardHolderNameError.classList.add("error");
+                    cardHolderName.classList.add("errorInput");
+                    cardHolderNameError.innerText="Can't be blank"
+                }
+            }
             setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},1)
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
             document.addEventListener("click",render);
