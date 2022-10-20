@@ -94,16 +94,30 @@ main {
 }
 
 
-.form label {
+.labelName {
     color: var(--veryDarkViolet);
     align-self: flex-start;
     margin-bottom: 10px;
     margin-top: 20px;
-
 }
 
-.input {
+.label {
+    display: none;
+    color: var(--veryDarkViolet);
+    align-self: flex-start;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
 
+.labelMobile {
+    display: block;
+    color: var(--veryDarkViolet);
+    align-self: flex-start;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.inputName {
     font-family: 'Space Grotesk', sans-serif;
     border: 1px solid var(--lightGrayishViolet);
     padding: 10px;
@@ -111,11 +125,29 @@ main {
     border-radius: 5px;
 }
 
-.input:hover {
+.input {
+    display:none;
+    font-family: 'Space Grotesk', sans-serif;
+    border: 1px solid var(--lightGrayishViolet);
+    padding: 10px;
+    color: var(--veryDarkViolet);
+    border-radius: 5px;
+}
+
+.inputMobile {
+    display:block;
+    font-family: 'Space Grotesk', sans-serif;
+    border: 1px solid var(--lightGrayishViolet);
+    padding: 10px;
+    color: var(--veryDarkViolet);
+    border-radius: 5px;
+}
+
+.input:hover, .inputName:hover, .inputMobile:hover {
     border-color: var(--darkGrayishViolet);
 }
 
-.input:focus {
+.input:focus, .inputName:focus, .inputMobile:focus {
     background: linear-gradient(var(--white),var(--white)) padding-box,
     linear-gradient(90deg ,var(--blueInputBorder), var(--violetInputBorder)) border-box;
     border: 1px solid;
@@ -232,7 +264,19 @@ main {
     display: flex;
 }
 
+.errorName {
+    display: block;
+    color: var(--redInputErrors);
+    margin-top: 5px;
+}
+
 .error {
+    display: none;
+    color: var(--redInputErrors);
+    margin-top: 5px;
+}
+
+.errorMobile {
     display: block;
     color: var(--redInputErrors);
     margin-top: 5px;

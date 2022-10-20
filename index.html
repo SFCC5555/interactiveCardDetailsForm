@@ -31,27 +31,38 @@
   </header>
   <main>
     <section class="form">
-      <label for="cardHolderName">CARDHOLDER NAME</label>
-      <input class="input" type="text" id="cardHolderName" placeholder="e.g. Levi Ackerman" maxlength="25">
+      <label class="labelName" for="cardHolderName">CARDHOLDER NAME</label>
+      <input class="inputName" type="text" id="cardHolderName" placeholder="e.g. Levi Ackerman" maxlength="25">
       <div class="inactive" id="cardHolderNameError"></div>
-      <label for="cardNumber">CARD NUMBER</label>
+      <label class="label" for="cardNumber">CARD NUMBER</label>
+      <label class="labelMobile" for="cardNumberMobile">CARD NUMBER</label>
       <input class="input" type="text" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
+      <input class="inputMobile" type="number" id="cardNumberMobile" placeholder="e.g. 1234 5678 9123 0000" maxlength="19">
       <div class="inactive" id="cardNumberError"></div>
+      <div class="inactive" id="cardNumberErrorMobile"></div>
       <div class="finalBlock">
         <div class="finalBlock1">
-          <label for="dateMM">EXP.DATE (MM/YY)</label>
+          <label class="label" for="dateMM">EXP.DATE (MM/YY)</label>
+          <label class="labelMobile" for="dateMMMobile">EXP.DATE (MM/YY)</label>
           <div class="dateBlock">
             <input class="input" type="text" id="dateMM" placeholder="MM" maxlength="2">
+            <input class="inputMobile" type="number" id="dateMMMobile" placeholder="MM" maxlength="2">
             <input class="input" type="text" id="dateYY" placeholder="YY" maxlength="2">
+            <input class="inputMobile" type="number" id="dateYYMobile" placeholder="YY" maxlength="2">
           </div>
           <div class="inactive" id="dateMMError"></div>
+          <div class="inactive" id="dateMMErrorMobile"></div>
           <div class="inactive" id="dateYYError"></div>
+          <div class="inactive" id="dateYYErrorMobile"></div>
         </div>
 
         <div class="finalBlock2">
-          <label for="cardCode">CVC</label>
-          <input class="input" type="text" id="cardCode" placeholder="e.g. 123" maxlength="3">
+          <label class="label" for="cardCode">CVC</label>
+          <label class="labelMobile" for="cardCodeMobile">CVC</label>
+          <input class="input" type="text" id="cardCode" placeholder="e.g. 123" maxlength="3" >
+          <input class="inputMobile" type="number" id="cardCodeMobile" placeholder="e.g. 123">
           <div class="inactive" id="cardCodeError"></div>
+          <div class="inactive" id="cardCodeErrorMobile"></div>
         </div>
       </div>
       <input type="submit" value="Confirm" id="confirmButton" class="button">
