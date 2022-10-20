@@ -11,9 +11,19 @@ header {
 }
 
 .form {
-    width: 40%;
+    width: 50%;
     min-width: 250px;
     translate: 20% -10%;
+}
+
+.formComplete {
+    width: 50%;
+    min-width: 250px;
+    translate: 20% -10%;
+}
+
+.input {
+    display: block;
 }
 
 .cardBack {

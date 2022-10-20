@@ -23,22 +23,27 @@ let confirmButton=document.getElementById("confirmButton");
 let sectionForm=document.querySelector(".form");
 
 cardHolderName.addEventListener("click",render);
+cardHolderName.addEventListener("focus",render);
 cardHolderName.addEventListener("keydown",test);
 cardHolderName.addEventListener("keydown",render);
 
 cardNumber.addEventListener("click",renderNumber);
+cardNumber.addEventListener("focus",renderNumber);
 cardNumber.addEventListener("keydown",testNumber);
 cardNumber.addEventListener("keydown",renderNumber);
 
 dateMM.addEventListener("click",renderDateMM);
+dateMM.addEventListener("focus",renderDateMM);
 dateMM.addEventListener("keydown",testDateMM);
 dateMM.addEventListener("keydown",renderDateMM);
 
 dateYY.addEventListener("click",renderDateYY);
+dateYY.addEventListener("focus",renderDateYY);
 dateYY.addEventListener("keydown",testDateYY);
 dateYY.addEventListener("keydown",renderDateYY);
 
 cardCode.addEventListener("click",renderCode);
+cardCode.addEventListener("focus",renderCode);
 cardCode.addEventListener("keydown",testCode);
 cardCode.addEventListener("keydown",renderCode);
 
@@ -51,24 +56,14 @@ charList=["Q","W","E","R","T","Y","U","I","O","P","A","S","D","F","G","H","J","K
 let renderStatus="on"
 
 function render(evento) {
-    console.log(renderStatus)
 
     if (renderStatus=="on") {
         cardHolderNameError.classList.remove("error");
         cardHolderName.classList.remove("errorInput");
 
-
+        console.log(evento)
         
-        if (evento.type=="focus") {
-            setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
-            setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},1)
-            if (cardHolderName.value=="") {
-                cardHolderNameError.classList.add("error");
-                cardHolderName.classList.add("errorInput");
-                cardHolderNameError.innerText="Can't be blank"
-            }
-        }
-        else if (evento.type=="click") {
+        if (evento.type=="click") {
 
             if (evento.target!=cardHolderName) {
                 if (cardHolderName.value=="") {
@@ -82,12 +77,26 @@ function render(evento) {
             document.addEventListener("click",render);
             cardNumber.addEventListener("focus",render);
         }
+        
+        else if (evento.type=="focus") {
+            if (evento.target!=cardHolderName) {
+                if (cardHolderName.value=="") {
+                    cardHolderNameError.classList.add("error");
+                    cardHolderName.classList.add("errorInput");
+                    cardHolderNameError.innerText="Can't be blank"
+                }
+            }
+            setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
+            setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},1)
+            document.addEventListener("click",render);
+            cardNumber.addEventListener("focus",render);
+        }
+
 
         else {
             letter= evento.key.toUpperCase();
 
             if (letter=="BACKSPACE") {
-                console.log(evento)
                 setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
             }
     
@@ -142,8 +151,6 @@ function test(evento2) {
     for (i of y) {
         x=charList.indexOf(i)
         z.push(x)
-        console.log(x)
-        console.log(z)
         
         if (z.indexOf(-1)==-1) {
             renderStatus="on";
@@ -151,7 +158,7 @@ function test(evento2) {
         else {
             renderStatus="of";
         }
-        console.log(renderStatus)
+
     }
 }
 
@@ -163,29 +170,12 @@ let renderNumberStatus="on"
 
 function renderNumber(eventoNumber) {
 
-    console.log(eventoNumber)
-    console.log(renderNumberStatus)
 
     if (renderNumberStatus=="on") {
         cardNumberError.classList.remove("error");
         cardNumber.classList.remove("errorInput");
         
-        if (eventoNumber.type=="focus") {
-            setTimeout(function(){cardNumberValue.innerText=cardNumber.value;},1)
-            if (cardNumber.value=="") {
-                cardNumberError.classList.add("error");
-                cardNumber.classList.add("errorInput");
-                cardNumberError.innerText="Can't be blank";
-                
-            }
-
-            else if (cardNumber.value.length<19) {
-                cardNumberError.classList.add("error");
-                cardNumber.classList.add("errorInput");
-                cardNumberError.innerText="Incomplete data";
-            }
-        }
-        else if (eventoNumber.type=="click") {
+        if (eventoNumber.type=="click") {
 
             if (eventoNumber.target!=cardNumber) {
                 if (cardNumber.value=="") {
@@ -205,6 +195,28 @@ function renderNumber(eventoNumber) {
             cardHolderName.addEventListener("focus",renderNumber);
             dateMM.addEventListener("focus",renderNumber);
         }
+        
+        else if (eventoNumber.type=="focus") {
+            if (eventoNumber.target!=cardNumber) {
+                if (cardNumber.value=="") {
+                    cardNumberError.classList.add("error");
+                    cardNumber.classList.add("errorInput");
+                    cardNumberError.innerText="Can't be blank";
+                    
+                }
+
+                else if (cardNumber.value.length<19) {
+                    cardNumberError.classList.add("error");
+                    cardNumber.classList.add("errorInput");
+                    cardNumberError.innerText="Incomplete data";
+                }
+            }
+            setTimeout(function(){cardNumberValue.innerText=cardNumber.value;},1)
+            document.addEventListener("click",renderNumber);
+            cardHolderName.addEventListener("focus",renderNumber);
+            dateMM.addEventListener("focus",renderNumber);
+        }
+
 
         else {
             number= eventoNumber.key;
@@ -247,7 +259,6 @@ function renderNumber(eventoNumber) {
 function testNumber(eventoNumber2) {
     zNumber=[];
     number2= eventoNumber2.key;
-    console.log(number2)
     
     if (number2=="Backspace") {
         yNumber=cardNumber.value.substr(0,cardNumber.value.length-1)
@@ -268,7 +279,6 @@ function testNumber(eventoNumber2) {
         yNumber=cardNumber.value
     }
 
-    console.log(yNumber)
     for (iNumber of yNumber) {
         xNumber=charNumberList.indexOf(iNumber)
         zNumber.push(xNumber)
@@ -291,38 +301,12 @@ let renderDateMMStatus="on"
 
 function renderDateMM(eventoDateMM) {
 
-    console.log(eventoDateMM)
-    console.log(renderDateMMStatus)
 
     if (renderDateMMStatus=="on") {
         dateMMError.classList.remove("error");
         dateMM.classList.remove("errorInput");
         
-        if (eventoDateMM.type=="focus") {
-            setTimeout(function(){dateMMValue.innerText=dateMM.value;},1)
-            if (dateMM.value=="") {
-                
-                dateMM.classList.add("errorInput");
-                
-                if (dateYYError.classList=="inactive") {
-                    dateMMError.classList.add("error");
-                    dateMMError.innerText="Can't be blank";
-                }  
-            }
-            else if (dateMM.value.length==1) {
-                dateMM.value="0"+dateMM.value
-                dateMMValue.innerText=dateMM.value
-            }
-
-            if (dateMM.value>12 || dateMM.value=="00") {
-                    
-                dateMM.classList.add("errorInput");
-                dateMMError.classList.add("error");
-                dateMMError.innerText="Invalid date";
-
-            }
-        }
-        else if (eventoDateMM.type=="click") {
+        if (eventoDateMM.type=="click") {
 
             if (eventoDateMM.target!=dateMM) {
                 if (dateMM.value=="") {
@@ -353,6 +337,39 @@ function renderDateMM(eventoDateMM) {
             cardNumber.addEventListener("focus",renderDateMM);
             dateYY.addEventListener("focus",renderDateMM);
         }
+        
+        
+        else if (eventoDateMM.type=="focus") {
+
+            if (eventoDateMM.target!=dateMM) {
+                if (dateMM.value=="") {
+                    
+                    dateMM.classList.add("errorInput");
+                    
+                    if (dateYYError.classList=="inactive") {
+                        dateMMError.classList.add("error");
+                        dateMMError.innerText="Can't be blank";
+                    }  
+                }
+                else if (dateMM.value.length==1) {
+                    dateMM.value="0"+dateMM.value
+                    dateMMValue.innerText=dateMM.value
+                }
+
+                if (dateMM.value>12 || dateMM.value=="00") {
+                        
+                    dateMM.classList.add("errorInput");
+                    dateMMError.classList.add("error");
+                    dateMMError.innerText="Invalid date";
+
+                }
+            }    
+            setTimeout(function(){dateMMValue.innerText=dateMM.value;},1)
+            document.addEventListener("click",renderDateMM);
+            cardNumber.addEventListener("focus",renderDateMM);
+            dateYY.addEventListener("focus",renderDateMM);
+        }
+
 
         else {
             dateM = eventoDateMM.key;
@@ -396,7 +413,6 @@ function renderDateMM(eventoDateMM) {
 function testDateMM(eventoDateMM2) {
     zDateMM=[];
     dateM2= eventoDateMM2.key;
-    console.log(dateM2)
     
     if (dateM2=="Backspace") {
         yDateMM=dateMM.value.substr(0,dateMM.value.length-1)
@@ -439,33 +455,12 @@ let renderDateYYStatus="on"
 
 function renderDateYY(eventoDateYY) {
 
-    console.log(eventoDateYY)
-    console.log(renderDateYYStatus)
 
     if (renderDateYYStatus=="on") {
         dateYYError.classList.remove("error");
         dateYY.classList.remove("errorInput");
         
-        if (eventoDateYY.type=="focus") {
-            setTimeout(function(){dateYYValue.innerText=dateYY.value;},1)
-            if (dateYY.value=="") {
-                
-                dateYY.classList.add("errorInput");
-                
-                if (dateMMError.classList=="inactive") {
-                    
-                    dateYYError.classList.add("error");
-                    dateYYError.innerText="Can't be blank";
-                }
-
-                
-            }
-            else if (dateYY.value.length==1) {
-                dateYY.value="0"+dateYY.value
-                dateYYValue.innerText=dateYY.value
-            }
-        }
-        else if (eventoDateYY.type=="click") {
+        if (eventoDateYY.type=="click") {
 
             if (eventoDateYY.target!=dateYY) {
                 if (dateYY.value=="") {
@@ -490,6 +485,33 @@ function renderDateYY(eventoDateYY) {
             dateYY.addEventListener("focus",renderDateYY);
             cardCode.addEventListener("focus",renderDateYY);
         }
+        
+        
+        else if (eventoDateYY.type=="focus") {
+            if (eventoDateYY.target!=dateYY) {
+                if (dateYY.value=="") {
+                    
+                    dateYY.classList.add("errorInput");
+                    
+                    if (dateMMError.classList=="inactive") {
+                        
+                        dateYYError.classList.add("error");
+                        dateYYError.innerText="Can't be blank";
+                    }
+
+                    
+                }
+                else if (dateYY.value.length==1) {
+                    dateYY.value="0"+dateYY.value
+                    dateYYValue.innerText=dateYY.value
+                }
+            }
+            setTimeout(function(){dateYYValue.innerText=dateYY.value;},1)
+            document.addEventListener("click",renderDateYY);
+            dateYY.addEventListener("focus",renderDateYY);
+            cardCode.addEventListener("focus",renderDateYY);
+        }
+
 
         else {
             dateY = eventoDateYY.key;
@@ -531,7 +553,6 @@ function renderDateYY(eventoDateYY) {
 function testDateYY(eventoDateYY2) {
     zDateYY=[];
     dateY2= eventoDateYY2.key;
-    console.log(dateY2)
     
     if (dateY2=="Backspace") {
         yDateYY=dateYY.value.substr(0,dateYY.value.length-1)
@@ -579,22 +600,7 @@ function renderCode(eventoCode) {
         cardCodeError.classList.remove("error");
         cardCode.classList.remove("errorInput");
         
-        if (eventoCode.type=="focus") {
-            setTimeout(function(){cardCodeValue.innerText=cardCode.value;},1)
-            if (cardCode.value=="") {
-                cardCodeError.classList.add("error");
-                cardCode.classList.add("errorInput");
-                cardCodeError.innerText="Can't be blank";
-                
-            }
-
-            else if (cardCode.value.length<3) {
-                cardCodeError.classList.add("error");
-                cardCode.classList.add("errorInput");
-                cardCodeError.innerText="Incomplete data";
-            }
-        }
-        else if (eventoCode.type=="click") {
+        if (eventoCode.type=="click") {
 
             if (eventoCode.target!=cardCode) {
                 if (cardCode.value=="") {
@@ -614,6 +620,28 @@ function renderCode(eventoCode) {
             confirmButton.addEventListener("focus",renderCode);
             dateYY.addEventListener("focus",renderCode);
         }
+        
+        else if (eventoCode.type=="focus") {
+            if (eventoCode.target!=cardCode) {
+                if (cardCode.value=="") {
+                    cardCodeError.classList.add("error");
+                    cardCode.classList.add("errorInput");
+                    cardCodeError.innerText="Can't be blank";
+                    
+                }
+
+                else if (cardCode.value.length<3) {
+                    cardCodeError.classList.add("error");
+                    cardCode.classList.add("errorInput");
+                    cardCodeError.innerText="Incomplete data";
+                }
+            }
+            setTimeout(function(){cardCodeValue.innerText=cardCode.value;},1)
+            document.addEventListener("click",renderCode);
+            confirmButton.addEventListener("focus",renderCode);
+            dateYY.addEventListener("focus",renderCode);
+        }
+
 
         else {
             code= eventoCode.key;
@@ -690,7 +718,33 @@ function testCode(eventoCode2) {
 function confirm() {
    
     if (cardHolderNameError.classList=="inactive" && cardNumberError.classList=="inactive" && dateMMError.classList=="inactive" && dateYYError.classList=="inactive" && cardCodeError.classList=="inactive" && cardHolderName.value!="" && cardNumber.value!="" && dateMM.value!="" && dateYY.value!="" && cardCode.value!="") {
+        
         sectionForm.innerText="";
+        sectionForm.classList.remove("form");
+        sectionForm.classList.add("formComplete");
+
+       
+        checkLogo=document.createElement("img");
+        checkLogo.setAttribute("src","./images/icon-complete.svg");
+        checkLogo.setAttribute("alt","check");
+        checkLogo.setAttribute("class","checkLogo")
+        sectionForm.appendChild(checkLogo);
+
+        title=document.createElement("h1");
+        title.innerText="THANK YOU!"
+        sectionForm.appendChild(title);
+
+        text=document.createElement("p");
+        text.innerText="We've added your card details";
+        sectionForm.appendChild(text)
+
+        continueButton=document.createElement("input");
+        continueButton.setAttribute("type","submit");
+        continueButton.setAttribute("class","button");
+        continueButton.setAttribute("value","Continue");
+        sectionForm.appendChild(continueButton);
+
+
     }
 
     else {
