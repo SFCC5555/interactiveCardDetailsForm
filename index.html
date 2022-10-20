@@ -15,7 +15,7 @@
 <body>
   <header>
     <div class="cardBack">
-        <div id="cVCValue">000</div>
+        <div id="cardCodeValue">000</div>
 
     </div>
     <div class="cardFront">
@@ -23,7 +23,9 @@
       <div id="circunference"></div>
       <div id="cardNumberValue">0000 0000 0000 0000</div>
       <div id="cardHolderNameValue">LEVI ACKERMAN</div>
-      <div id="dateValue">00/00</div>
+      <div id="dateValue">
+      <div id="dateMMValue">00</div><div>/</div><div id="dateYYValue">00</div>
+      </div>
 
     </div>
   </header>
@@ -42,12 +44,14 @@
             <input class="input" type="text" id="dateMM" placeholder="MM" maxlength="2">
             <input class="input" type="text" id="dateYY" placeholder="YY" maxlength="2">
           </div>
-          <div class="inactive" id="cardDateError"></div>
+          <div class="inactive" id="dateMMError"></div>
+          <div class="inactive" id="dateYYError"></div>
         </div>
 
         <div class="finalBlock2">
-          <label for="cVC">CVC</label>
-          <input class="input" type="text" id="cVC" placeholder="e.g. 123" maxlength="3">
+          <label for="cardCode">CVC</label>
+          <input class="input" type="text" id="cardCode" placeholder="e.g. 123" maxlength="3">
+          <div class="inactive" id="cardCodeError"></div>
         </div>
       </div>
       <input type="submit" value="Confirm" id="confirmButton">

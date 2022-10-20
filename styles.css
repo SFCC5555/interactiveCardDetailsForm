@@ -163,16 +163,9 @@ main {
     cursor: pointer;
 }
 
-.attribution { 
-    font-size: 1.1rem; 
-    text-align: center;
-    margin-bottom:4px ;
-}
-.attribution a { 
-    color: var(--purple);
-}
 
-#cVCValue {
+
+#cardCodeValue {
     position: relative;
     top:67px;
     left: 215px;
@@ -206,9 +199,9 @@ main {
     letter-spacing: 2px;
     position: relative;
     top: 45px;
-    left: 50%;
-    translate: -50%;
+    left: 20px;
     display: inline-block;
+    text-align: left;
 }
 
 #cardHolderNameValue {
@@ -226,7 +219,7 @@ main {
     position: absolute;
     top: 122px;
     left: 225px;
-    display: inline-block;
+    display: flex;
 }
 
 .error {
@@ -245,4 +238,13 @@ main {
 
 .errorInput:focus {
     border-color: var(--redInputErrors);
+}
+
+.attribution { 
+    font-size: 1.1rem; 
+    text-align: center;
+    margin-bottom:4px ;
+}
+.attribution a { 
+    color: var(--purple);
 }
