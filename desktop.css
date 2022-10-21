@@ -21,32 +21,6 @@ header {
     min-width: 250px;
     translate: 20% -10%;
 }
-
-.input {
-    display: block;
-}
-
-.label {
-    display: block;
-}
-
-.labelMobile {
-    display: none;
-}
-
-.inputMobile {
-    display: none;
-}
-
-.error {
-    display: block;
-}
-
-.errorMobile {
-    display: none;
-}
-
-
 .cardBack {
     position: absolute;
     top: 50%;

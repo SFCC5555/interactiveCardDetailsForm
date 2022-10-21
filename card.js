@@ -58,7 +58,7 @@ let renderStatus="on"
 function render(evento) {
 
     if (renderStatus=="on") {
-        cardHolderNameError.classList.remove("errorName");
+        cardHolderNameError.classList.remove("error");
         cardHolderName.classList.remove("errorInput");
 
         
@@ -66,7 +66,7 @@ function render(evento) {
 
             if (evento.target!=cardHolderName) {
                 if (cardHolderName.value=="") {
-                    cardHolderNameError.classList.add("errorName");
+                    cardHolderNameError.classList.add("error");
                     cardHolderName.classList.add("errorInput");
                     cardHolderNameError.innerText="Can't be blank"
                 }
@@ -75,13 +75,12 @@ function render(evento) {
             setTimeout(function(){cardHolderNameValue.innerText=cardHolderName.value.toUpperCase();},1)
             document.addEventListener("click",render);
             cardNumber.addEventListener("focus",render);
-            cardNumberMobile.addEventListener("focus",render);
         }
         
         else if (evento.type=="focus") {
             if (evento.target!=cardHolderName) {
                 if (cardHolderName.value=="") {
-                    cardHolderNameError.classList.add("errorName");
+                    cardHolderNameError.classList.add("error");
                     cardHolderName.classList.add("errorInput");
                     cardHolderNameError.innerText="Can't be blank"
                 }
@@ -90,7 +89,6 @@ function render(evento) {
             setTimeout(function(){cardHolderName.value=cardHolderName.value.toUpperCase();},1)
             document.addEventListener("click",render);
             cardNumber.addEventListener("focus",render);
-            cardNumberMobile.addEventListener("focus",render);
         }
 
 
@@ -124,7 +122,7 @@ function render(evento) {
 
     }
     else {
-        cardHolderNameError.classList.add("errorName");
+        cardHolderNameError.classList.add("error");
         cardHolderName.classList.add("errorInput");
         cardHolderNameError.innerText="Wrong format, letters only"
     }
@@ -780,37 +778,4 @@ function confirm() {
         }
     }
 
-}
-
-/*MOBILE*/
-
-let cardNumberMobile = document.getElementById("cardNumberMobile");
-let cardNumberErrorMobile = document.getElementById("cardNumberErrorMobile");
-
-let dateMMMobile = document.getElementById("dateMMMobile");
-let dateMMErrorMobile = document.getElementById("dateMMErrorMobile");
-
-let dateYYMobile = document.getElementById("dateYYMobile");
-let dateYYErrorMobile = document.getElementById("dateYYErrorMobile");
-
-let cardCodeMobile = document.getElementById("cardCodeMobile");
-let cardCodeErrorMobile = document.getElementById("cardCodeErrorMobile");
-
-
-confirmButton.addEventListener("click",confirmMobile);
-
-
-
-cardNumberMobile.addEventListener("focus",renderMobile);
-document.addEventListener("keydown",renderMobile);
-
-
-function renderMobile(eventoMobile) {
-    cardNumberValue.innerText=cardNumberMobile.value
-    console.log(cardNumberMobile.value.length)
-}
-
-
-function confirmMobile() {
-    alert("holis")
 }
