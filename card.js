@@ -169,7 +169,7 @@ let renderNumberStatus="on"
 
 function renderNumber(eventoNumber) {
 
-
+    console.log(eventoNumber.key)
     if (renderNumberStatus=="on") {
         cardNumberError.classList.remove("error");
         cardNumber.classList.remove("errorInput");

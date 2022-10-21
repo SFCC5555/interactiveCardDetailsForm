@@ -232,7 +232,6 @@ main {
     display: flex;
 }
 
-
 .error {
     display: block;
     color: var(--redInputErrors);
